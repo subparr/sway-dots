@@ -1,0 +1,10 @@
+width=400
+height=200
+location=top
+hide_scroll=true
+prompt=run
+dynamic_lines=true
+single_click=true
+matching=strict-contains
+insensitive=true
+terminal=foot

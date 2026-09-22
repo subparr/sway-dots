@@ -1,0 +1,17 @@
+set -g fish_term24bit 1
+
+set -g fish_color_normal "{{colors.primary_fixed_dim.default.hex}}"
+set -g fish_color_param "{{colors.primary_fixed_dim.default.hex}}"
+
+set -g fish_color_command "{{colors.primary.default.hex}}" --bold
+
+set -g fish_color_autosuggestion "{{colors.surface_variant.default.hex}}"
+
+set -g fish_color_quote "{{colors.secondary_fixed_dim.default.hex}}"
+set -g fish_color_comment "{{colors.outline.default.hex}}"
+set -g fish_color_end "{{colors.outline.default.hex}}"
+set -g fish_color_error "{{colors.error.default.hex}}"
+
+set -g fish_pager_color_prefix "{{colors.primary.default.hex}}" --bold
+set -g fish_pager_color_completion "{{colors.primary_fixed_dim.default.hex}}"
+set -g fish_pager_color_description "{{colors.surface_variant.default.hex}}"

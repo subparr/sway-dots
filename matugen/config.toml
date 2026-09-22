@@ -1,0 +1,30 @@
+[config]
+version_check = false
+[templates.sway]
+input_path = 'templates/sway-template'
+output_path = '~/.config/sway/colors.conf'
+post_hook = 'swaymsg reload'
+[templates.swaybar]
+input_path = 'templates/swaybar-template'
+output_path = '~/.config/sway/colors_bar.conf'
+post_hook = 'swaymsg reload'
+[templates.btop]
+input_path = 'templates/btop-template'
+output_path = '~/.config/btop/themes/matugen.theme'
+[templates.dunst]
+input_path = 'templates/dunst-template'
+output_path = '~/.config/dunst/dunstrc'
+post_hook = 'dunstctl reload'
+[templates.fish]
+input_path = 'templates/fish-template'
+output_path = '~/.config/fish/colors.fish'
+[templates.fastfetch]
+input_path = 'templates/fastfetch-template'
+output_path = '~/.config/fastfetch/config.jsonc'
+[templates.neovim]
+input_path = 'templates/nvim-template'
+output_path = '~/.config/nvim/generated.lua'
+post_hook = 'pkill -SIGUSR1 nvim'
+[templates.yazi]
+input_path = '~/.config/matugen/templates/yazi-template'
+output_path = '~/.config/yazi/theme.toml'

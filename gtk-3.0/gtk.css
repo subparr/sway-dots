@@ -1,0 +1,81 @@
+* {
+    border-radius: 0;
+    box-shadow: none;
+    text-shadow: none;
+    transition: none;
+    animation: none;
+    outline: none;
+}
+
+
+window,
+dialog,
+.background {
+    background-color: #333;
+    color: #d0d0d0;
+}
+
+
+button {
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    padding: 4px 6px;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+button:active {
+    background-color: #111;
+}
+
+button:checked {
+    background-color: #444;
+}
+
+
+entry,
+textview,
+textarea {
+    background-color: #1a1a1a;
+    border: 1px solid #444;
+    padding: 4px;
+}
+
+
+headerbar {
+    background-color: #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+    box-shadow: none;
+}
+
+headerbar button {
+    background: none;
+    border: 1px solid #444;
+}
+
+
+scrollbar {
+    background-color: #444;
+}
+
+scrollbar slider {
+    background-color: #444;
+    border: none;
+}
+
+
+menu,
+popover {
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+    box-shadow: none;
+}
+
+
+*:selected {
+    background-color: #444;
+    color: #fff;
+}
+

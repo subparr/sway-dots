@@ -1,0 +1,14 @@
+set $focus_border    {{colors.primary_container.default.hex}}
+set $focus_bg        {{colors.primary_container.default.hex}}
+set $focus_text      {{colors.on_primary_container.default.hex}}
+set $focus_indicator {{colors.primary_fixed_dim.default.hex}}
+
+set $unfocus_border    #333333
+set $unfocus_bg        #333333
+set $unfocus_text      #888888
+set $unfocus_indicator #292d2e
+
+client.focused          $focus_border    $focus_bg        $focus_text    $focus_indicator $focus_border
+client.unfocused        $unfocus_border  $unfocus_bg      $unfocus_text  $unfocus_indicator $unfocus_border
+client.focused_inactive $unfocus_border  $unfocus_bg      $unfocus_text  $unfocus_indicator $unfocus_border
+client.urgent        {{colors.primary_fixed_dim.default.hex}} {{colors.primary_fixed_dim.default.hex}} {{colors.on_primary_fixed_variant.default.hex}} {{colors.primary_fixed_dim.default.hex}} {{colors.primary_fixed_dim.default.hex}}

@@ -1,0 +1,150 @@
+set $mod Mod4
+set $term foot
+set $launcher wofi
+
+#SCREENCAST FIX SEE ALSO ~/.config/xdg-desktop-portal/wlr.conf and smth
+exec --no-startup-id dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec --no-startup-id autotiling-rs &
+exec --no-startup-id ~/.config/sway/borders.sh &
+exec --no-startup-id dunst &
+exec --no-startup-id wob &
+exec --no-startup-id mkfifo /tmp/wobpipe && tail -f /tmp/wobpipe | wob
+exec --no-startup-id awww-daemon &
+exec --no-startup-id wl-paste --type text --watch cliphist -max-items 1 store &
+exec --no-startup-id wl-paste --type image --watch cliphist -max-items 1 store &
+seat seat0 xcursor_theme Adwaita-small 14
+
+#SOUND N BRIGHTNESS
+bindsym XF86AudioRaiseVolume exec ~/.config/sway/vol_limit.sh up
+bindsym XF86AudioLowerVolume exec ~/.config/sway/vol_limit.sh down
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86MonBrightnessUp exec brightnessctl set +5% && brightnessctl -m | grep -oP '[0-9]+(?=%)' > /tmp/wobpipe
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%- && brightnessctl -m | grep -oP '[0-9]+(?=%)' > /tmp/wobpipe
+
+
+#RELOAD
+bindsym --to-code $mod+Shift+r reload
+
+
+#MOVEMENT N USER WINDOW MODIFIERS
+floating_modifier $mod
+bindsym $mod+space floating toggle
+bindsym --to-code $mod+f fullscreen toggle
+
+bindsym --to-code $mod+k focus up
+bindsym --to-code $mod+j focus down
+bindsym --to-code $mod+h focus left
+bindsym --to-code $mod+l focus right
+bindsym --to-code $mod+up focus up
+bindsym --to-code $mod+down focus down
+bindsym --to-code $mod+left focus left
+bindsym --to-code $mod+right focus right
+bindsym --to-code $mod+Shift+k move up 30 px 
+bindsym --to-code $mod+Shift+j move down 30 px 
+bindsym --to-code $mod+Shift+h move left 30 px 
+bindsym --to-code $mod+Shift+l move right 30 px 
+bindsym --to-code $mod+Shift+up move up 30 px 
+bindsym --to-code $mod+Shift+down move down 30 px 
+bindsym --to-code $mod+Shift+left move left 30 px 
+bindsym --to-code $mod+Shift+right move right 30 px 
+bindsym --to-code $mod+r mode "resize"
+
+mode "resize" {
+	
+  bindsym --to-code $mod+j resize grow height 30 px
+  bindsym --to-code $mod+k resize shrink height 30 px
+  bindsym --to-code $mod+h resize shrink width 30 px
+  bindsym --to-code $mod+l resize grow width 30 px
+  bindsym --to-code $mod+down gaps inner all minus 2
+  bindsym --to-code $mod+up gaps inner all plus 2
+  bindsym --to-code $mod+right gaps outer all plus 2
+  bindsym --to-code $mod+left gaps outer all minus 2
+  bindsym --to-code $mod+r mode "default"
+
+}
+
+focus_follows_mouse yes
+focus_on_window_activation smart
+
+
+#EXECS
+bindsym $mod+Return exec $term
+bindsym --to-code $mod+t exec $term
+bindsym --to-code $mod+q kill
+bindsym --no-repeat --release Super_L exec pkill $launcher || $launcher --show drun
+bindsym --to-code $mod+shift+w exec $term --title "change wp" ~/.config/sway/wp_change.sh
+
+#MISC
+bindcode --to-code ctrl+shift+49 exec grim -g "$(slurp)" - | swappy -f - 
+bindcode ctrl+49 exec grim - | wl-copy
+bindcode --to-code mod1+49 exec grim -g "$(slurp)" - | wl-copy
+
+#FOR FUCKING GLYCIN
+for_window [title="Open Files"] floating enable, resize set 700 500, move position center
+for_window [title="Open File"] floating enable, resize set 700 500, move position center
+for_window [title="Save File"] floating enable, resize set 700 500, move position center
+for_window [title="imv - *"] floating enable, move position center
+for_window [title="^change wp$"] floating enable, move position center, border none
+floating_maximum_size 1200 x 800 
+
+#WORKSPACE
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+
+
+#kb layout
+input type:keyboard {
+    xkb_layout us,ru
+    xkb_options grp:alt_shift_toggle
+	repeat_delay 250
+    repeat_rate 40
+}
+
+output DP-1 resolution 1920x1080@144hz max_render_time 2
+
+input "1739:52861:SYNA32B9:00_06CB:CE7D_Touchpad" {
+	natural_scroll enabled
+	
+}
+bindsym $mod+BackSpace+Shift input "1:1:AT_Translated_Set_2_keyboard" events toggle
+
+
+
+#STYLING
+include colors_bar.conf
+include colors.conf
+font pango:Terminus 10
+default_floating_border normal
+default_border pixel
