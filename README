@@ -1,0 +1,10 @@
+Personal dotfiles for swaywm, being here mostly for safekeeping.
+
+Todos:
+-Get rid of glycin, substitute with terminal based solution
+-nvim -> vis
+-install.sh for better portability
+-rewrite bar script in rust and get rid of stuff here + add ctr for vms/docker containers excluding gateway,
+	add gateway status, add server status + secret file for ip and such
+-deps
+
