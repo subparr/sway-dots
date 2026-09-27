@@ -25,6 +25,10 @@ output_path = '~/.config/fastfetch/config.jsonc'
 input_path = 'templates/nvim-template'
 output_path = '~/.config/nvim/generated.lua'
 post_hook = 'pkill -SIGUSR1 nvim'
+[templates.vis]
+input_path = 'templates/vis-template'
+output_path = '~/.config/vis/themes/matugen.lua'
+post_hook = 'pkill -SIGUSR1 vis'
 [templates.yazi]
 input_path = '~/.config/matugen/templates/yazi-template'
 output_path = '~/.config/yazi/theme.toml'
