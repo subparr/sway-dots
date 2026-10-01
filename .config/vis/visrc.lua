@@ -20,63 +20,33 @@ vis.events.subscribe(vis.events.WIN_OPEN, function(win)
 	vis:command('set savemethod atomic') 
 	vis:command('set ignorecase off') 
 
-end)
+ -- enter newline my belowed
+	vis:map(vis.modes.NORMAL, "<Enter>", function()
+		vis:feedkeys("o<Escape>")
+	end, "")
 
--- copypaste
+	vis:map(vis.modes.NORMAL, "<S-Enter>", function()
+		vis:feedkeys("O<Escape>")
+	end, "")
 
-vis:operator_new('y', function(file, range, pos)
-  local text = file:content(range)
-  local proc = io.popen('wl-copy', 'w')
-  if proc then
-    proc:write(text)
-    proc:close()
-  end
-  return range.start
-end)
+ --copypaste 
 
+	vis:map(vis.modes.NORMAL,      'y', '<vis-register>+<vis-operator-yank>')
+    vis:map(vis.modes.VISUAL,      'y', '<vis-register>+<vis-operator-yank>')
+    vis:map(vis.modes.VISUAL_LINE, 'y', '<vis-register>+<vis-operator-yank>')
+    vis:map(vis.modes.NORMAL,      'p', '<vis-register>+<vis-put-after>')
+    vis:map(vis.modes.VISUAL,      'p', '<vis-register>+<vis-put-after>')
+    vis:map(vis.modes.VISUAL_LINE, 'p', '<vis-register>+<vis-put-after>')
+    vis:map(vis.modes.NORMAL,      'P', '<vis-register>+<vis-put-before>')
+    vis:map(vis.modes.VISUAL,      'P', '<vis-register>+<vis-put-before>')
+    vis:map(vis.modes.VISUAL_LINE, 'P', '<vis-register>+<vis-put-before>')
 
-vis:map(vis.modes.NORMAL, 'p', function()
-  local win = vis.win
-  local pos = win.selection.pos
-  local proc = io.popen('wl-paste', 'r')
-  local text = proc and proc:read('*a') or ''
-  if proc then proc:close() end
-  win.file:insert(pos, text)
-  win.selection.pos = pos + #text
-end)
-
--- newlines on enter
-
-local function line_end(file, pos)
-  local text = file:content(pos, math.min(file.size - pos, 4096))
-  local nl = text:find('\n', 1, true)
-  return nl and (pos + nl - 1) or file.size
-end
-
-local function line_start(file, pos)
-  if pos == 0 then return 0 end
-  local before = math.min(pos, 4096)
-  local text = file:content(pos - before, before)
-  local nl = text:find('\n[^\n]*$')
-  return nl and (pos - before + nl) or 0
-end
-
-vis:map(vis.modes.NORMAL, '<Enter>', function()
-  local win = vis.win
-  local file = win.file
-  local pos = win.selection.pos
-  local eol = line_end(file, pos)
-  file:insert(eol, '\n')
-  win.selection.pos = eol + 1
-end)
-
-vis:map(vis.modes.NORMAL, '<S-Enter>', function()
-  local win = vis.win
-  local file = win.file
-  local pos = win.selection.pos
-  local sol = line_start(file, pos)
-  file:insert(sol, '\n')
-  win.selection.pos = sol
+ -- fm
+	vis:map(vis.modes.NORMAL, "fm", function()
+		vis:command("open .")
+		vis:feedkeys("<C-w>k")
+		vis:command("wq!")
+	end, "")
 end)
 
 
