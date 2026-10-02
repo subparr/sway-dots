@@ -1,7 +1,7 @@
 set $mod Mod4
 set $term foot
-set $launcher wofi
-
+set $launcher fuzzel
+#bar cfg fully migrated to matugen template please contact your local tech support service to resolve any issues regarding bar
 #SCREENCAST FIX SEE ALSO ~/.config/xdg-desktop-portal/wlr.conf and smth
 exec --no-startup-id dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec --no-startup-id autotiling-rs &
@@ -71,7 +71,7 @@ focus_on_window_activation smart
 bindsym $mod+Return exec $term
 bindsym --to-code $mod+t exec $term
 bindsym --to-code $mod+q kill
-bindsym --no-repeat --release Super_L exec pkill $launcher || $launcher --show drun
+bindsym --no-repeat --release Super_L exec pkill $launcher || $launcher -T foot
 bindsym --to-code $mod+shift+w exec $term --title "change wp" ~/.config/sway/wp_change.sh
 
 #MISC
@@ -87,7 +87,7 @@ for_window [title="imv - *"] floating enable, move position center
 for_window [title="^change wp$"] floating enable, move position center, border none
 floating_maximum_size 1200 x 800 
 
-#WORKSPACE
+#WORKSPACE SHIT
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -121,6 +121,8 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+
+
 
 
 
