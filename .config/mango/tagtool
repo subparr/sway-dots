@@ -1,0 +1,18 @@
+#!/bin/bash
+
+statedir = ${HOME}/.local/state/tagtool
+
+mkdir -p "dir"
+
+case $1 in 
+save)
+	
+restore)
+
+list)
+	ls "$statedir"
+	;;
+esac
+
+
+

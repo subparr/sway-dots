@@ -1,0 +1,64 @@
+{
+    "layer": "top",
+    "height": 20,
+
+    "modules-left": ["workspaces", "keymode"],
+
+    "modules-center": [],
+    "modules-right": [
+        "network",
+        "cpu",
+        "custom/ram",
+        "battery",
+        "custom/kb",
+        "clock#time"
+    ],
+
+    "workspaces": {
+        "hide-empty": true,
+        "on-click": "activate",
+        "on-click-right": "toggle",
+        "scroll-interval": 100,
+        "on-scroll-up": "mmsg dispatch viewtoleft_have_client",
+        "on-scroll-down": "mmsg dispatch viewtoright_have_client"
+    },
+
+	"keymode": {
+    "format": "{}"
+	},
+
+	"network": {
+	    "format": "{ifname} |",
+	    "format-wifi": "{ifname} |",
+	    "format-disconnected": "Offline |",
+	},
+
+    "cpu": { "format": "CPU {usage}% |" },
+
+    "custom/ram": {
+        "exec": "~/.config/mangobar/status.sh ram",
+        "interval": 2,
+        "format": "{} |"
+    },
+
+	"battery": {
+	    "format": "[{percent}%] {icon} |",
+	    "icon-charging": "▲",
+	    "icon-ac": "▼",
+	    "icons": ["▼","▼","▼","▼","▼","▼","▼","▼","▼","▼","▼"],
+	    "icon-full": "▲",
+	},
+
+	"custom/kb": {
+	    "exec": "mmsg get keyboardlayout | cut -c12-13",
+	    "interval": 1,
+	    "format": "{} |"
+	},
+
+    "clock#time": {
+        "format": "%a %F %I:%M %p",
+        "on-click": "notify-send 'Menu' 'Test'",
+        "on-scroll-up": "~/.config/mangobar/vol_limit.sh up",
+        "on-scroll-down": "~/.config/mangobar/vol_limit.sh down"
+    }
+}
