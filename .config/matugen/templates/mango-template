@@ -1,0 +1,18 @@
+[global]
+gap_inner_horizontal = 5
+gap_inner_vertical = 5
+gap_outer_horizontal = 10
+gap_outer_vertical = 10
+scratchpad_width_ratio = 0.8
+scratchpad_height_ratio = 0.9
+border_px = 3
+root_color = 0x{{colors.surface.default.hex_stripped}}ff
+border_color = 0x{{colors.outline_variant.default.hex_stripped}}ff
+drop_color = 0x{{colors.primary.default.hex_stripped}}55
+split_color = 0x{{colors.tertiary.default.hex_stripped}}ff
+focus_color = 0x{{colors.primary.default.hex_stripped}}ff
+maximized_screen_color = 0x{{colors.secondary.default.hex_stripped}}ff
+urgent_color = 0x{{colors.error.default.hex_stripped}}ff
+scratchpad_color = 0x{{colors.primary_fixed_dim.default.hex_stripped}}ff
+global_color = 0x{{colors.tertiary_fixed_dim.default.hex_stripped}}ff
+overlay_color = 0x{{colors.secondary_fixed_dim.default.hex_stripped}}ff
