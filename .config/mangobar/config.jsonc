@@ -36,7 +36,7 @@
     "cpu": { "format": "CPU {usage}% |" },
 
     "custom/ram": {
-        "exec": "~/.config/mangobar/status.sh ram",
+        "exec": "free -h | awk '/^Mem:/ {print $3 \"/\" $2}' | tr -d 'i'",
         "interval": 2,
         "format": "{} |"
     },

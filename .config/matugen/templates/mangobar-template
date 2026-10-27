@@ -14,5 +14,5 @@
 #tags          { background-color: #000000; color: {{colors.on_surface_variant.default.hex}}; padding: 0px 6px; }
 #tags.occupied { background-color: #000000; color: {{colors.on_surface_variant.default.hex}}; }
 #tags.empty    { background-color: #000000; color: {{colors.on_surface_variant.default.hex}}; }
-#tags.active   { background-color: {{colors.primary.default.hex}}; color: {{colors.on_primary.default.hex}}; }
-#tags.urgent   { background-color: {{colors.error.default.hex}}; color: {{colors.on_error.default.hex}}; }
+#tags.active   { background-color: {{colors.primary_container.default.hex}}; color: {{colors.on_primary_container.default.hex}}; }
+#tags.urgent   { background-color: {{colors.primary.default.hex}}; color: {{colors.on_primary.default.hex}}; }

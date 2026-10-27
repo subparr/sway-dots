@@ -1,5 +1,5 @@
 require('base16-colorscheme').setup({
-    base00 = '{{colors.background.default.hex}}',
+    base00 = '#0D0F14',
     base01 = '{{colors.surface_container.default.hex}}',
     base02 = '{{colors.surface_bright.default.hex}}',
     base03 = '{{colors.outline.default.hex}}',
