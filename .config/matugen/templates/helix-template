@@ -1,0 +1,93 @@
+"ui.background" = { bg = "base00" }
+"ui.text" = { fg = "base05" }
+"ui.text.focus" = { fg = "base06" }
+"ui.window" = { fg = "base03" }
+"ui.help" = { fg = "base05", bg = "base01" }
+"ui.popup" = { fg = "base05", bg = "base01" }
+"ui.menu" = { fg = "base05", bg = "base01" }
+"ui.menu.selected" = { fg = "base06", bg = "base02" }
+"ui.statusline" = { fg = "base05", bg = "base01" }
+"ui.statusline.inactive" = { fg = "base03", bg = "base01" }
+"ui.statusline.normal" = { fg = "base00", bg = "accent", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "base00", bg = "accent", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "base00", bg = "accent", modifiers = ["bold"] }
+"ui.linenr" = { fg = "base03" }
+"ui.linenr.selected" = { fg = "accent", modifiers = ["bold"] }
+"ui.gutter" = { bg = "base00" }
+"ui.cursor" = { fg = "base00", bg = "base04" }
+"ui.cursor.primary" = { fg = "base00", bg = "base05" }
+"ui.cursor.match" = { bg = "base02" }
+"ui.selection" = { bg = "base02" }
+"ui.selection.primary" = { bg = "visual_bg" }
+"ui.cursorline.primary" = { bg = "base01" }
+"ui.highlight" = { bg = "base02" }
+"ui.virtual.ruler" = { bg = "base01" }
+"ui.virtual.whitespace" = { fg = "base02" }
+"ui.virtual.indent-guide" = { fg = "base02" }
+"ui.virtual.inlay-hint" = { fg = "base03" }
+"ui.virtual.jump-label" = { fg = "tertiary_hi", modifiers = ["bold"] }
+
+"diff.plus" = { fg = "primary" }
+"diff.minus" = { fg = "err" }
+"diff.delta" = { fg = "tertiary" }
+
+"error" = { fg = "err" }
+"warning" = { fg = "tertiary" }
+"info" = { fg = "primary" }
+"hint" = { fg = "base04" }
+"diagnostic.error" = { underline = { color = "err", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "tertiary", style = "curl" } }
+"diagnostic.info" = { underline = { color = "primary", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "base04", style = "curl" } }
+
+"comment" = { fg = "base03", modifiers = ["italic"] }
+"keyword" = { fg = "tertiary" }
+"keyword.directive" = { fg = "tertiary_hi" }
+"function" = { fg = "primary" }
+"function.builtin" = { fg = "primary" }
+"function.macro" = { fg = "tertiary_hi" }
+"type" = { fg = "secondary" }
+"type.builtin" = { fg = "secondary" }
+"constructor" = { fg = "secondary" }
+"namespace" = { fg = "secondary_hi" }
+"string" = { fg = "primary_hi" }
+"string.regexp" = { fg = "tertiary" }
+"constant" = { fg = "err" }
+"constant.builtin" = { fg = "err" }
+"constant.numeric" = { fg = "err" }
+"constant.character.escape" = { fg = "tertiary" }
+"variable" = { fg = "base05" }
+"variable.builtin" = { fg = "tertiary_hi", modifiers = ["italic"] }
+"variable.parameter" = { fg = "base04", modifiers = ["italic"] }
+"attribute" = { fg = "tertiary_hi" }
+"label" = { fg = "tertiary_hi" }
+"tag" = { fg = "err" }
+"operator" = { fg = "base04" }
+"punctuation" = { fg = "base04" }
+"special" = { fg = "primary" }
+
+"markup.heading" = { fg = "primary", modifiers = ["bold"] }
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.link.url" = { fg = "primary", modifiers = ["underlined"] }
+"markup.link.text" = { fg = "tertiary" }
+"markup.raw" = { fg = "primary_hi" }
+"markup.quote" = { fg = "base03", modifiers = ["italic"] }
+
+[palette]
+base00 = "#0D0F14"
+base01 = "{{colors.surface_container.default.hex}}"
+base02 = "{{colors.surface_bright.default.hex}}"
+base03 = "{{colors.outline.default.hex}}"
+base04 = "{{colors.on_surface_variant.default.hex}}"
+base05 = "{{colors.on_surface.default.hex}}"
+base06 = "{{colors.on_background.default.hex}}"
+accent = "{{colors.primary.default.hex}}"
+primary = "{{colors.primary.default.hex}}"
+primary_hi = "{{colors.primary_fixed.default.hex}}"
+secondary = "{{colors.secondary.default.hex}}"
+secondary_hi = "{{colors.secondary_fixed.default.hex}}"
+tertiary = "{{colors.tertiary.default.hex}}"
+tertiary_hi = "{{colors.tertiary_fixed.default.hex}}"
+err = "{{colors.error.default.hex}}"
+visual_bg = "{{colors.on_primary_fixed_variant.default.hex}}"

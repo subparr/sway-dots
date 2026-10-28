@@ -30,4 +30,6 @@ output_path = '~/.config/yazi/theme.toml'
 [templates.fuzzel]
 input_path = '~/.config/matugen/templates/fuzzel-template'
 output_path = '~/.config/fuzzel/fuzzel.ini'
-
+[templates.helix]
+input_path = 'templates/helix-template'
+output_path = '~/.config/helix/themes/matugen.toml'
